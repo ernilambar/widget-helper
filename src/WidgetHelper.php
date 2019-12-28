@@ -9,6 +9,8 @@
 
 namespace ErNilambar\WidgetHelper;
 
+use WP_Widget;
+
 class WH extends WP_Widget {
 
 }
