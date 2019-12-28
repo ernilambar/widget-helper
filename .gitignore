@@ -25,8 +25,5 @@ vendor/
 # Windows junk
 Thumbs.db
 
-# Theme specific
-test.php
-
 # Deploy
 /deploy/
