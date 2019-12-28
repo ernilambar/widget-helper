@@ -9,8 +9,10 @@
 
 namespace ErNilambar\WidgetHelper;
 
-use WP_Widget;
+class WH {
 
-class WH extends WP_Widget {
+	public function hello() {
+		echo 'hello';
+	}
 
 }
