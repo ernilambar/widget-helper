@@ -17,7 +17,7 @@
 	},
 	"autoload"    : {
 		"psr-4": { 
-      "Rivsen\\Demo\\": "src/" 
+      "ErNilambar\\WidgetHelper\\": "src/" 
     }
   },
   "require"     : {
