@@ -1,4 +1,15 @@
 <?php
+/**
+ * Widget helper class
+ *
+ * Helper class to create custom widgets.
+ *
+ * @author    Nilambar Sharma <nilambar@outlook.com>
+ * @copyright 2019 Nilambar Sharma
+ *
+ * @package WidgetHelper
+ */
+
 namespace ErNilambar\WidgetHelper;
 
 use WP_Widget;
@@ -10,12 +21,31 @@ use WP_Widget;
  */
 class Helper extends WP_Widget {
 
+	/**
+	 * Widget arguments.
+	 *
+	 * @since 1.0.0
+	 * @var array
+	 */
 	protected $args;
 
+	/**
+	 * Widget fields.
+	 *
+	 * @since 1.0.0
+	 * @var array
+	 */
 	protected $fields;
 
-	function create_widget( $args ) {
-
+	/**
+	 * Create widget.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $args Arguments.
+	 * @return void
+	 */
+	public function create_widget( $args ) {
 		$this->args = $args;
 
 		$widget_options  = isset( $args['widget'] ) ? $args['widget'] : array();
@@ -24,26 +54,45 @@ class Helper extends WP_Widget {
 		$this->fields = isset( $args['fields'] ) ? $args['fields'] : array();
 
 		parent::__construct( $args['id'], $args['label'], $widget_options, $control_options );
-
 	}
 
-	function form( $instance ) {
-
+	/**
+	 * Outputs the settings form.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $instance Widget instance.
+	 * @return void
+	 */
+	public function form( $instance ) {
 		$this->create_form( $instance );
-
 	}
 
-	function get_field_values( $instance ) {
+	/**
+	 * Returns field values.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $instance Widget instance.
+	 * @return array Field values.
+	 */
+	protected function get_field_values( $instance ) {
+		$values = array();
 
-		$values   = array();
 		$defaults = $this->get_default_field_values();
 		$values   = array_merge( $defaults, $instance );
-		return $values;
 
+		return $values;
 	}
 
+	/**
+	 * Returns default field values.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array Default field values.
+	 */
 	private function get_default_field_values() {
-
 		$default_values = array();
 
 		if ( ! empty( $this->fields ) ) {
@@ -56,11 +105,17 @@ class Helper extends WP_Widget {
 		}
 
 		return $default_values;
-
 	}
 
+	/**
+	 * Create form.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $instance Widget instance.
+	 * @return void
+	 */
 	protected function create_form( $instance ) {
-
 		if ( ! $this->fields ) {
 			return;
 		}
@@ -70,11 +125,19 @@ class Helper extends WP_Widget {
 		foreach ( $this->fields as $key => $field ) {
 			$this->create_form_field( $key, $field, $values[ $key ] );
 		}
-
 	}
 
+	/**
+	 * Create form field.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $key Key.
+	 * @param array  $field Field detail.
+	 * @param mixed  $value Field value.
+	 * @return void
+	 */
 	protected function create_form_field( $key, $field, $value ) {
-
 		$type  = isset( $field['type'] ) ? $field['type'] : 'text';
 		$class = isset( $field['class'] ) ? sanitize_html_class( $field['class'] ) : '';
 
@@ -263,16 +326,31 @@ class Helper extends WP_Widget {
 
 	}
 
-	function update( $new_instance, $old_instance ) {
-
+	/**
+	 * Updage widget.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $new_instance New widget instance.
+	 * @param array $old_instance Old widget instance.
+	 * @return array Modified widget instance.
+	 */
+	public function update( $new_instance, $old_instance ) {
 		$instance = $this->update_form( $new_instance, $old_instance );
 
 		return $instance;
-
 	}
 
+	/**
+	 * Update widget with sanitized values.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $new_instance New widget instance.
+	 * @param array $old_instance Old widget instance.
+	 * @return array Modified widget instance.
+	 */
 	protected function update_form( $new_instance, $old_instance ) {
-
 		$instance = $old_instance;
 
 		foreach ( $this->fields as $key => $field ) {
@@ -282,11 +360,19 @@ class Helper extends WP_Widget {
 		}
 
 		return $instance;
-
 	}
 
+	/**
+	 * Sanitize field.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param string $key Key.
+	 * @param string $field Widget field.
+	 * @param mixed  $new_value Value.
+	 * @return mixed Sanitized value.
+	 */
 	protected function sanitize_field( $key, $field, $new_value ) {
-
 		$ret = null;
 
 		$field_type = isset( $field['type'] ) ? $field['type'] : 'text';
@@ -346,6 +432,5 @@ class Helper extends WP_Widget {
 		}
 
 		return $ret;
-
 	}
 }
