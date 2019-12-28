@@ -1,0 +1,26 @@
+{
+	"name"        : "ernilambar/widget-helper",
+	"description" : "Widget helper",
+	"keywords"    : [ "wordpress" ],
+	"homepage"    : "https://github.com/ernilambar/widget-helper",
+	"license"     : "MIT",
+	"authors"     : [
+		{
+			"name"     : "Nilambar Sharma",
+			"email"    : "nilambar@outlook.com",
+			"homepage" : "https://www.nilambar.net",
+			"role"     : "Developer"
+		}
+	],
+	"support"     : {
+		"issues" : "https://github.com/ernilambar/widget-helper/issues"
+	},
+	"autoload"    : {
+		"psr-4" : {
+			"ErNilambar\\WidgetHelper\\" : "src/"
+		}
+	},
+	"require"     : {
+		"php" : ">=5.6"
+	}
+}
