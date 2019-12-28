@@ -16,7 +16,7 @@
 		"issues" : "https://github.com/ernilambar/widget-helper/issues"
 	},
 	"autoload"    : {
-		"psr-4" : {
+		"psr-0" : {
 			"HelloWorld" : "src/"
 		}
 	},
