@@ -15,7 +15,7 @@ namespace ErNilambar\WidgetHelper;
 use WP_Widget;
 
 /**
- * Helper class test.
+ * Helper class.
  *
  * @since 1.0.0
  */
@@ -164,9 +164,9 @@ class Helper extends WP_Widget {
 				?>
 				<div class="widget-field-image">
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
-					<input type="button" class="button button-primary wh-image-picker" value="<?php esc_attr_e( 'Upload', 'khabar' ); ?>" data-uploader_title="<?php esc_attr_e( 'Select Image', 'khabar' ); ?>" data-uploader_button_text="<?php esc_attr_e( 'Choose Image', 'khabar' ); ?>" />
+					<input type="button" class="button button-primary wh-image-picker" value="<?php esc_attr_e( 'Upload', 'textdomain' ); ?>" data-uploader_title="<?php esc_attr_e( 'Select Image', 'textdomain' ); ?>" data-uploader_button_text="<?php esc_attr_e( 'Choose Image', 'textdomain' ); ?>" />
 					<input type="hidden" class="image-field-hidden" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" value="<?php echo esc_attr( $value ); ?>" />
-					<input type="button" class="button button-secondary btn-image-remove" value="<?php esc_attr_e( 'Remove', 'khabar' ); ?>" <?php echo ( empty( $value ) ) ? 'style="display:none;"' : ''; ?> />
+					<input type="button" class="button button-secondary btn-image-remove" value="<?php esc_attr_e( 'Remove', 'textdomain' ); ?>" <?php echo ( empty( $value ) ) ? 'style="display:none;"' : ''; ?> />
 					<div class="field-image-preview">
 					<?php if ( ! empty( $value ) ) : ?>
 						<img src="<?php echo esc_attr( $value ); ?>" alt="" />
@@ -323,11 +323,10 @@ class Helper extends WP_Widget {
 			default:
 				break;
 		}
-
 	}
 
 	/**
-	 * Updage widget.
+	 * Update widget.
 	 *
 	 * @since 1.0.0
 	 *
@@ -336,13 +335,13 @@ class Helper extends WP_Widget {
 	 * @return array Modified widget instance.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance = $this->update_form( $new_instance, $old_instance );
+		$instance = $this->update_fields( $new_instance, $old_instance );
 
 		return $instance;
 	}
 
 	/**
-	 * Update widget with sanitized values.
+	 * Update fields with sanitized values.
 	 *
 	 * @since 1.0.0
 	 *
@@ -350,13 +349,11 @@ class Helper extends WP_Widget {
 	 * @param array $old_instance Old widget instance.
 	 * @return array Modified widget instance.
 	 */
-	protected function update_form( $new_instance, $old_instance ) {
+	protected function update_fields( $new_instance, $old_instance ) {
 		$instance = $old_instance;
 
 		foreach ( $this->fields as $key => $field ) {
-
 			$instance[ $key ] = $this->sanitize_field( $key, $field, $new_instance[ $key ] );
-
 		}
 
 		return $instance;
@@ -403,7 +400,7 @@ class Helper extends WP_Widget {
 				break;
 
 			case 'textarea':
-				$ret = wp_kses_post( $new_value );
+				$ret = sanitize_textarea_field( $new_value );
 				break;
 
 			case 'url':
