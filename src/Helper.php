@@ -4,7 +4,7 @@ namespace ErNilambar\WidgetHelper;
 use WP_Widget;
 
 /**
- * Helper class.
+ * Helper class test.
  *
  * @since 1.0.0
  */
