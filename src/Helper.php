@@ -152,11 +152,8 @@ class Helper extends WP_Widget {
 				<p>
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 					<input type="<?php echo esc_attr( $type ); ?>" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo esc_attr( $class ); ?>" />
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
-
 				<?php
 				break;
 
@@ -172,6 +169,7 @@ class Helper extends WP_Widget {
 						<img src="<?php echo esc_attr( $value ); ?>" alt="" />
 					<?php endif; ?>
 					</div><!-- .field-image-preview -->
+					<?php $this->show_field_description( $field ); ?>
 				</div>
 				<?php
 				break;
@@ -184,16 +182,7 @@ class Helper extends WP_Widget {
 				<p class="widget-field-number">
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 					<input type="number" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo esc_attr( $class ); ?>" min="<?php echo esc_attr( $min ); ?>" max="<?php echo esc_attr( $max ); ?>" step="<?php echo esc_attr( $step ); ?>" />
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<?php
-						$description_class = 'widget-field-description';
-						if ( isset( $field['adjacent'] ) && true === $field['adjacent'] ) {
-							$description_class .= ' adjacent';
-
-						}
-						?>
-						<span class="<?php echo esc_attr( $description_class ); ?>"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -203,6 +192,7 @@ class Helper extends WP_Widget {
 				<p class="widget-field-color">
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 					<input type="text" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="wh-color-picker <?php echo esc_attr( $class ); ?>" />
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -212,6 +202,7 @@ class Helper extends WP_Widget {
 				<p>
 					<input type="checkbox" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" class="<?php echo esc_attr( $class ); ?>" <?php checked( ! empty( $value ) ); ?> />
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -221,9 +212,7 @@ class Helper extends WP_Widget {
 				<p>
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 					<textarea rows="<?php echo absint( $field['rows'] ); ?>" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" class="widefat <?php echo esc_attr( $class ); ?>" placeholder="<?php echo esc_attr( $field['placeholder'] ); ?>"><?php echo esc_textarea( $value ); ?></textarea>
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -261,9 +250,7 @@ class Helper extends WP_Widget {
 							<?php endforeach; ?>
 						<?php endif; ?>
 					</select>
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -279,9 +266,7 @@ class Helper extends WP_Widget {
 							</label>
 						<?php endforeach; ?>
 					<?php endif; ?>
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -298,9 +283,7 @@ class Helper extends WP_Widget {
 							</label>
 						<?php endforeach; ?>
 					<?php endif; ?>
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -318,9 +301,7 @@ class Helper extends WP_Widget {
 				<p class="widget-field-dropdown-pages">
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 					<?php wp_dropdown_pages( $page_args ); ?>
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -339,9 +320,7 @@ class Helper extends WP_Widget {
 				<p class="widget-field-dropdown-taxonomies">
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 					<?php wp_dropdown_categories( $tax_args ); ?>
-					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
-					<?php endif; ?>
+					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
 				break;
@@ -349,6 +328,27 @@ class Helper extends WP_Widget {
 			default:
 				break;
 		}
+	}
+
+	/**
+	 * Show field description.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param array $field Field details.
+	 */
+	public function show_field_description( $field ) {
+		if ( ! ( isset( $field['description'] ) && ! empty( $field['description'] ) ) ) {
+			return;
+		}
+
+		$description_class = 'widget-field-description';
+		if ( isset( $field['adjacent'] ) && true === $field['adjacent'] ) {
+			$description_class .= ' adjacent';
+		}
+		?>
+		<span class="<?php echo esc_attr( $description_class ); ?>"><em><?php echo esc_html( $field['description'] ); ?></em></span>
+		<?php
 	}
 
 	/**
