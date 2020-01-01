@@ -185,7 +185,14 @@ class Helper extends WP_Widget {
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
 					<input type="number" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" value="<?php echo esc_attr( $value ); ?>" class="<?php echo esc_attr( $class ); ?>" min="<?php echo esc_attr( $min ); ?>" max="<?php echo esc_attr( $max ); ?>" step="<?php echo esc_attr( $step ); ?>" />
 					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
-						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
+						<?php
+						$description_class = 'widget-field-description';
+						if ( isset( $field['adjacent'] ) && true === $field['adjacent'] ) {
+							$description_class .= ' adjacent';
+
+						}
+						?>
+						<span class="<?php echo esc_attr( $description_class ); ?>"><em><?php echo esc_html( $field['description'] ); ?></em></span>
 					<?php endif; ?>
 				</p>
 				<?php
