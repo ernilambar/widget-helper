@@ -35,14 +35,13 @@
 
 .widget-content .widget-field-radio-image input.wh-radio-image {
   display: none; }
-
-.widget-content .widget-field-radio-image input.wh-radio-image + label {
-  margin-right: 10px;
-  display: inline-flex;
-  padding: 2 !important;
-  width: auto;
-  height: auto;
-  overflow: hidden; }
+  .widget-content .widget-field-radio-image input.wh-radio-image + label {
+    margin-right: 10px;
+    display: inline-flex;
+    padding: 2 !important;
+    width: auto;
+    height: auto;
+    overflow: hidden; }
 
 .widget-content .widget-field-radio-image input.wh-radio-image:checked + label {
   border: 2px solid #777777; }

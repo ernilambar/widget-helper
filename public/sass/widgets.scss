@@ -50,14 +50,14 @@
 		}
 		input.wh-radio-image {
 		    display: none;
-		}
-		input.wh-radio-image + label {
-		    margin-right: 10px;
-		    display: inline-flex;
-		    padding: 2!important;
-		    width: auto;
-		    height: auto;
-		    overflow: hidden;
+			& + label {
+			    margin-right: 10px;
+			    display: inline-flex;
+			    padding: 2!important;
+			    width: auto;
+			    height: auto;
+			    overflow: hidden;
+			}
 		}
 		input.wh-radio-image:checked + label {
 		    border: 2px solid #777777;
