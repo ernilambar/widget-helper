@@ -2,6 +2,8 @@
 module.exports = function( grunt ){
 	'use strict';
 
+	const sass = require( 'node-sass' );
+
 	grunt.initConfig({
 		pkg: grunt.file.readJSON( 'package.json' ),
 
@@ -9,6 +11,7 @@ module.exports = function( grunt ){
 		dirs: {
 			js: 'public/js',
 			css: 'public/css',
+			sass: 'public/sass',
 			images: 'public/images'
 		},
 
@@ -44,17 +47,36 @@ module.exports = function( grunt ){
 					ext: '.min.js'
 				}]
 			}
+		},
+		sass: {
+			options: {
+				implementation: sass,
+				"sourcemap=none": '',
+				style: 'expanded'
+			},
+			dist: {
+				files: {
+					'<%= dirs.css %>/widgets.css': '<%= dirs.sass %>/widgets.scss'
+				}
+			}
 		}
+
 	});
 
 	// Load NPM tasks to be used here.
+	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 
 	// Register tasks.
 	grunt.registerTask( 'default', [] );
 
+	grunt.registerTask( 'css', [
+		'sass'
+	]);
+
 	grunt.registerTask( 'build', [
+		'sass',
 		'cssmin',
 		'uglify'
 	]);
