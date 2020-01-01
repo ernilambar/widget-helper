@@ -279,6 +279,25 @@ class Helper extends WP_Widget {
 				<?php
 				break;
 
+			case 'radio-image':
+				?>
+				<p class="widget-field-radio-image">
+					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
+					<?php if ( ! empty( $field['choices'] ) ) : ?>
+						<?php foreach ( $field['choices'] as $k => $item ) : ?>
+							<input type="radio" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( $key ) . '-' . $k ); ?>" value="<?php echo esc_attr( $k ); ?>" <?php checked( $k, $value ); ?>  class="wh-radio-image" />
+							<label for="<?php echo esc_attr( $this->get_field_id( $key ) . '-' . $k ); ?>">
+								<img src="<?php echo esc_url( $item['image'] ); ?>" alt="<?php echo esc_attr( $item['label'] ); ?>" />
+							</label>
+						<?php endforeach; ?>
+					<?php endif; ?>
+					<?php if ( isset( $field['description'] ) && ! empty( $field['description'] ) ) : ?>
+						<span class="widget-field-description"><em><?php echo esc_html( $field['description'] ); ?></em></span>
+					<?php endif; ?>
+				</p>
+				<?php
+				break;
+
 			case 'dropdown-pages':
 				$page_args = array();
 

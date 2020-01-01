@@ -36,3 +36,22 @@
 .widget-content .widget-field-image .field-image-preview img {
 	width: 100%;
 }
+
+.widget-field-radio-image input.wh-radio-image {
+    display: none;
+}
+.widget-field-radio-image input.wh-radio-image + label {
+    margin-right: 10px;
+    display: inline-flex;
+    padding: 2!important;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+.widget-field-radio-image input.wh-radio-image:checked + label {
+    border: 2px solid #777777;
+}
+
+.widget-field-radio-image > label {
+	display: block;
+}
