@@ -2,12 +2,13 @@
 	.separator {
 		border: 1px #ccc solid;
 	}
+
 	.widget-field-description {
 		display: block;
 		clear: both;
-	}
-	.widget-field-description.adjacent {
-		display: inline-block;
+		&.adjacent {
+			display: inline-block;
+		}
 	}
 
 	.widget-field-heading {
@@ -58,9 +59,9 @@
 			    height: auto;
 			    overflow: hidden;
 			}
-		}
-		input.wh-radio-image:checked + label {
-		    border: 2px solid #777777;
+			&:checked + label {
+			    border: 2px solid #777;
+			}
 		}
 	}
 }

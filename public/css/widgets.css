@@ -4,9 +4,8 @@
 .widget-content .widget-field-description {
   display: block;
   clear: both; }
-
-.widget-content .widget-field-description.adjacent {
-  display: inline-block; }
+  .widget-content .widget-field-description.adjacent {
+    display: inline-block; }
 
 .widget-content .widget-field-heading {
   text-align: center;
@@ -42,6 +41,5 @@
     width: auto;
     height: auto;
     overflow: hidden; }
-
-.widget-content .widget-field-radio-image input.wh-radio-image:checked + label {
-  border: 2px solid #777777; }
+  .widget-content .widget-field-radio-image input.wh-radio-image:checked + label {
+    border: 2px solid #777; }
