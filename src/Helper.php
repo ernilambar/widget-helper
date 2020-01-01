@@ -48,7 +48,12 @@ class Helper extends WP_Widget {
 	public function create_widget( $args ) {
 		$this->args = $args;
 
-		$widget_options  = isset( $args['widget'] ) ? $args['widget'] : array();
+		$widget_options = isset( $args['widget'] ) ? $args['widget'] : array();
+
+		$widget_options = wp_parse_args( $widget_options, array(
+			'customize_selective_refresh' => true,
+		) );
+
 		$control_options = isset( $args['control'] ) ? $args['control'] : array();
 
 		$this->fields = isset( $args['fields'] ) ? $args['fields'] : array();
