@@ -1,6 +1,6 @@
 # Widget Helper
 
-Simple helper library which helps to create widgets in WordPress in fast and east way.
+Simple helper library which helps to create WordPress widgets in fast and east way.
 
 ## Requirements
 
@@ -36,7 +36,7 @@ Package comes with the JS and CSS needed for the widgets fields. You can enqueue
 
 ## Usage
 
-You can now use helper class.
+You can create your new widget with extending the helper class.
 
 ```php
 use ErNilambar\WidgetHelper\Helper;
@@ -133,4 +133,4 @@ add_action( 'widgets_init', 'theme_slug_custom_widgets_init' );
 
 This project is licensed under the [MIT](http://opensource.org/licenses/MIT).
 
-2019 &copy; [Nilambar Sharma](https://www.nilambar.net).
+2020 &copy; [Nilambar Sharma](https://www.nilambar.net).
