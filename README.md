@@ -110,8 +110,27 @@ function theme_slug_custom_widgets_init() {
 add_action( 'widgets_init', 'theme_slug_custom_widgets_init' );
 ```
 
+### Available fields
+
+* Text
+* URL
+* Email
+* Number
+* Checkbox
+* Radio
+* Radio Image
+* Color
+* Select
+* Dropdown Pages
+* Dropdown Taxonomies
+* Image
+* Textarea
+* Heading
+* Message
+* Separator
+
 ## Copyright and License
 
-This project is licensed under the [GNU GPL](http://www.gnu.org/licenses/old-licenses/gpl-2.0.html), version 2 or later.
+This project is licensed under the [MIT](http://opensource.org/licenses/MIT).
 
 2019 &copy; [Nilambar Sharma](https://www.nilambar.net).
