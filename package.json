@@ -1,0 +1,17 @@
+{
+  "name": "widget-helper",
+  "version": "1.0.0",
+  "description": "Widget helper library",
+  "main": "Gruntfile.js",
+  "author": "Nilambar Sharma",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ernilambar/widget-helper.git"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.4",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-uglify": "^4.0.1"
+  }
+}
