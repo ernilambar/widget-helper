@@ -18,11 +18,11 @@ namespace Nilambar\WidgetHelper;
 class Assets {
 
 	/**
-	 * An instances.
+	 * An instance.
 	 *
 	 * @static
 	 * @access private
-	 * @since 1.0.1
+	 * @since 1.0.0
 	 * @var array
 	 */
 	private static $instance = null;
@@ -33,9 +33,10 @@ class Assets {
 	 * @since 1.0.0
 	 *
 	 * @param string $type Type.
+	 * @param string $plugin_slug Plugin slug. Required if type is plugin.
 	 */
-	public static function load_assets( $type = 'parent-theme' ) {
-		self::get_instance()->load_all_assets( $type );
+	public static function load_assets( $type = 'parent-theme', $plugin_slug = '' ) {
+		self::get_instance()->load_all_assets( $type, $plugin_slug );
 	}
 
 	/**
@@ -44,9 +45,10 @@ class Assets {
 	 * @since 1.0.0
 	 *
 	 * @param string $type Type.
+	 * @param string $plugin_slug Plugin slug.
 	 */
-	public function load_all_assets( $type ) {
-		$base_url = $this->get_base_url( $type );
+	public function load_all_assets( $type, $plugin_slug ) {
+		$base_url = $this->get_base_url( $type, $plugin_slug );
 
 		$asset_url = $base_url . '/vendor/ernilambar/widget-helper';
 
@@ -64,9 +66,10 @@ class Assets {
 	 * @since 1.0.0
 	 *
 	 * @param string $type Type.
+	 * @param string $plugin_slug Plugin slug.
 	 * @return string Base URL.
 	 */
-	private function get_base_url( $type ) {
+	private function get_base_url( $type, $plugin_slug ) {
 		$url = '';
 
 		switch ( $type ) {
@@ -79,7 +82,7 @@ class Assets {
 				break;
 
 			case 'plugin':
-				$url = plugins_url();
+				$url = plugins_url( $plugin_slug );
 				break;
 
 			default:
