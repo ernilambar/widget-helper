@@ -106,5 +106,4 @@ class Assets {
 
 		return self::$instance;
 	}
-
 }

@@ -36,6 +36,8 @@
   display: none; }
   .widget-content .widget-field-radio-image input.wh-radio-image + label {
     margin-right: 10px;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
     padding: 2 !important;
     width: auto;
