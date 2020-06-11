@@ -5,7 +5,7 @@
  * Helper class to create custom widgets.
  *
  * @author    Nilambar Sharma <nilambar@outlook.com>
- * @copyright 2019 Nilambar Sharma
+ * @copyright 2020 Nilambar Sharma
  *
  * @package WidgetHelper
  */
