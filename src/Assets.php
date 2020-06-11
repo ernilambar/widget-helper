@@ -48,6 +48,8 @@ class Assets {
 	 * @param string $plugin_slug Plugin slug.
 	 */
 	public function load_all_assets( $type, $plugin_slug ) {
+		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+
 		$base_url = $this->get_base_url( $type, $plugin_slug );
 
 		$asset_url = $base_url . '/vendor/ernilambar/widget-helper';
@@ -56,8 +58,8 @@ class Assets {
 		wp_enqueue_script( 'wp-color-picker' );
 		wp_enqueue_media();
 
-		wp_enqueue_style( 'widget-helper', $asset_url . '/public/css/widgets.css', array(), '1.0.0' );
-		wp_enqueue_script( 'widget-helper', $asset_url . '/public/js/widgets.js', array( 'jquery', 'wp-color-picker' ), '1.0.0', true );
+		wp_enqueue_style( 'widget-helper', $asset_url . '/public/css/widgets' . $min . '.css', array(), '1.0.0' );
+		wp_enqueue_script( 'widget-helper', $asset_url . '/public/js/widgets' . $min . '.js', array( 'jquery', 'wp-color-picker' ), '1.0.0', true );
 	}
 
 	/**

@@ -1,11 +1,9 @@
-// Config for theme.
+// Config.
 var rootPath  = './';
 
 // Gulp Nodes.
 var gulp        = require( 'gulp' ),
     gulpPlugins = require( 'gulp-load-plugins' )();
-
-var fs = require('fs');
 
 // Error Handling.
 var onError = function( err ) {
