@@ -32,30 +32,30 @@ class Theme_Hello_World extends Helper {
 	 */
 	public function __construct() {
 		$args['id']    = 'theme-hello-world';
-		$args['label'] = esc_html__( 'Hello World Widget', 'textdomain' );
+		$args['label'] = esc_html__( 'Hello World Widget', 'widget-helper' );
 
 		$args['widget'] = array(
 			'classname'   => 'theme_hello_world',
-			'description' => esc_html__( 'Hello world widget', 'textdomain' ),
+			'description' => esc_html__( 'Hello world widget', 'widget-helper' ),
 		);
 
 		$args['fields'] = array(
 			'sample_title'   => array(
-				'label' => esc_html__( 'Title:', 'textdomain' ),
+				'label' => esc_html__( 'Title:', 'widget-helper' ),
 				'type'  => 'text',
 				'class' => 'widefat',
 			),
 			'sample_message' => array(
-				'label' => esc_html__( 'Message:', 'textdomain' ),
+				'label' => esc_html__( 'Message:', 'widget-helper' ),
 				'type'  => 'textarea',
 				'class' => 'widefat',
 			),
 			'sample_image'   => array(
-				'label' => esc_html__( 'Image:', 'textdomain' ),
+				'label' => esc_html__( 'Image:', 'widget-helper' ),
 				'type'  => 'image',
 			),
 			'sample_color'   => array(
-				'label'   => esc_html__( 'Color:', 'textdomain' ),
+				'label'   => esc_html__( 'Color:', 'widget-helper' ),
 				'type'    => 'color',
 				'default' => '#DDDDDD',
 			),

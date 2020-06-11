@@ -40,6 +40,18 @@ You can create your new widget with extending the helper class.
 
 ```php
 use Nilambar\WidgetHelper\Helper;
+use Nilambar\WidgetHelper\Assets;
+
+/**
+ * Load widget assets.
+ *
+ * @since 1.0.0
+ */
+function theme_slug_load_widget_assets() {
+  Assets::load_assets();
+}
+
+add_action( 'admin_enqueue_scripts', 'theme_slug_load_widget_assets' );
 
 /**
  * Widget class.
@@ -54,23 +66,32 @@ class Theme_Hello_World extends Helper {
    */
   public function __construct() {
     $args['id']    = 'theme-hello-world';
-    $args['label'] = esc_html__( 'Hello World Widget', 'textdomain' );
+    $args['label'] = esc_html__( 'Hello World Widget', 'widget-helper' );
 
     $args['widget'] = array(
       'classname'   => 'theme_hello_world',
-      'description' => esc_html__( 'Hello world widget', 'textdomain' ),
+      'description' => esc_html__( 'Hello world widget', 'widget-helper' ),
     );
 
     $args['fields'] = array(
-      'title'   => array(
-        'label' => esc_html__( 'Title:', 'textdomain' ),
+      'sample_title'   => array(
+        'label' => esc_html__( 'Title:', 'widget-helper' ),
         'type'  => 'text',
         'class' => 'widefat',
       ),
-      'message' => array(
-        'label' => esc_html__( 'Message:', 'textdomain' ),
+      'sample_message' => array(
+        'label' => esc_html__( 'Message:', 'widget-helper' ),
         'type'  => 'textarea',
         'class' => 'widefat',
+      ),
+      'sample_image'   => array(
+        'label' => esc_html__( 'Image:', 'widget-helper' ),
+        'type'  => 'image',
+      ),
+      'sample_color'   => array(
+        'label'   => esc_html__( 'Color:', 'widget-helper' ),
+        'type'    => 'color',
+        'default' => '#DDDDDD',
       ),
     );
 
@@ -86,23 +107,29 @@ class Theme_Hello_World extends Helper {
    * @param array $instance Instance of the widget.
    */
   public function widget( $args, $instance ) {
+    // Fetch widget values.
     $values = $this->get_field_values( $instance );
 
     $values['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-    echo $args['before_widget'];
+    echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
     if ( ! empty( $values['title'] ) ) {
-      echo $args['before_title'] . esc_html( $values['title'] ) . $args['after_title'];
+      echo $args['before_title'] . esc_html( $values['title'] ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
 
-    echo wp_kses_post( $values['message'] );
+    // Display logic will be here.
 
-    echo $args['after_widget'];
+    echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
   }
 
 }
 
+/**
+ * Register widget.
+ *
+ * @since 1.0.0
+ */
 function theme_slug_custom_widgets_init() {
   register_widget( 'Theme_Hello_World' );
 }
