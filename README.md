@@ -46,9 +46,13 @@ use Nilambar\WidgetHelper\Assets;
  * Load widget assets.
  *
  * @since 1.0.0
+ *
+ * @param string $hook Hook name.
  */
-function theme_slug_load_widget_assets() {
-  Assets::load_assets();
+function theme_slug_load_widget_assets( $hook ) {
+  if ( 'widgets.php' === $hook ) {
+    Assets::load_assets();
+  }
 }
 
 add_action( 'admin_enqueue_scripts', 'theme_slug_load_widget_assets' );
