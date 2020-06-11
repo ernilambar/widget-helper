@@ -16,6 +16,18 @@
   "support" : {
     "issues" : "https://github.com/ernilambar/widget-helper/issues"
   },
+  "scripts": {
+    "test": "phpunit",
+    "config-cs": [
+      "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run",
+      "\"vendor/bin/phpcs\" --config-set installed_paths vendor/wp-coding-standards/wpcs",
+      "\"vendor/bin/phpcs\" --config-set default_standard WordPress"
+    ],
+    "post-install-cmd": "@config-cs",
+    "post-update-cmd": "@config-cs",
+    "lint": "\"vendor/bin/phpcs\" . ",
+    "lint-fix": "\"vendor/bin/phpcbf\" . "
+  },
   "autoload" : {
     "psr-4": { 
       "Nilambar\\WidgetHelper\\": "src/" 
@@ -23,5 +35,10 @@
   },
   "require" : {
     "php" : ">=5.6"
-  }
+  },
+	"require-dev": {
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
+		"squizlabs/php_codesniffer": "^3.5",
+		"wp-coding-standards/wpcs": "^2.3"
+	}
 }

@@ -50,9 +50,12 @@ class Helper extends WP_Widget {
 
 		$widget_options = isset( $args['widget'] ) ? $args['widget'] : array();
 
-		$widget_options = wp_parse_args( $widget_options, array(
-			'customize_selective_refresh' => true,
-		) );
+		$widget_options = wp_parse_args(
+			$widget_options,
+			array(
+				'customize_selective_refresh' => true,
+			)
+		);
 
 		$control_options = isset( $args['control'] ) ? $args['control'] : array();
 
@@ -305,7 +308,7 @@ class Helper extends WP_Widget {
 				?>
 				<p class="widget-field-dropdown-pages">
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
-					<?php wp_dropdown_pages( $page_args ); ?>
+					<?php wp_dropdown_pages( $page_args ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 					<?php $this->show_field_description( $field ); ?>
 				</p>
 				<?php
