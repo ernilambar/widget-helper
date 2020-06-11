@@ -169,9 +169,9 @@ class Helper extends WP_Widget {
 				?>
 				<div class="widget-field-image">
 					<label for="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>"><?php echo esc_html( $field['label'] ); ?></label>
-					<input type="button" class="button button-primary wh-image-picker" value="<?php esc_attr_e( 'Upload', 'textdomain' ); ?>" data-uploader_title="<?php esc_attr_e( 'Select Image', 'textdomain' ); ?>" data-uploader_button_text="<?php esc_attr_e( 'Choose Image', 'textdomain' ); ?>" />
+					<input type="button" class="button button-primary wh-image-picker" value="<?php esc_attr_e( 'Upload', 'widget-helper' ); ?>" data-uploader_title="<?php esc_attr_e( 'Select Image', 'widget-helper' ); ?>" data-uploader_button_text="<?php esc_attr_e( 'Choose Image', 'widget-helper' ); ?>" />
 					<input type="hidden" class="image-field-hidden" name="<?php echo esc_attr( $this->get_field_name( $key ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( $key ) ); ?>" value="<?php echo esc_attr( $value ); ?>" />
-					<input type="button" class="button button-secondary btn-image-remove" value="<?php esc_attr_e( 'Remove', 'textdomain' ); ?>" <?php echo ( empty( $value ) ) ? 'style="display:none;"' : ''; ?> />
+					<input type="button" class="button button-secondary btn-image-remove" value="<?php esc_attr_e( 'Remove', 'widget-helper' ); ?>" <?php echo ( empty( $value ) ) ? 'style="display:none;"' : ''; ?> />
 					<div class="field-image-preview">
 					<?php if ( ! empty( $value ) ) : ?>
 						<img src="<?php echo esc_attr( $value ); ?>" alt="" />

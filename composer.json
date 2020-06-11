@@ -1,7 +1,7 @@
 {
 	"name" : "ernilambar/widget-helper",
   "version" : "1.0.1",
-  "description" : "WordPress Widget helper",
+  "description" : "WordPress widget helper",
   "keywords" : [ "wordpress" ],
   "homepage" : "https://github.com/ernilambar/widget-helper",
   "license" : "MIT",

@@ -71,17 +71,9 @@ module.exports = function( grunt ){
 	// Register tasks.
 	grunt.registerTask( 'default', [] );
 
-	grunt.registerTask( 'css', [
-		'sass'
-	]);
-
 	grunt.registerTask( 'build', [
 		'sass',
 		'cssmin',
 		'uglify'
-	]);
-
-	grunt.registerTask( 'textdomain', [
-		'addtextdomain'
 	]);
 };
