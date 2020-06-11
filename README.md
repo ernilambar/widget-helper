@@ -39,7 +39,7 @@ Package comes with the JS and CSS needed for the widgets fields. You can enqueue
 You can create your new widget with extending the helper class.
 
 ```php
-use ErNilambar\WidgetHelper\Helper;
+use Nilambar\WidgetHelper\Helper;
 
 /**
  * Widget class.

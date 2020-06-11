@@ -1,26 +1,27 @@
 {
-	"name"        : "ernilambar/widget-helper",
-	"description" : "Widget helper",
-	"keywords"    : [ "wordpress" ],
-	"homepage"    : "https://github.com/ernilambar/widget-helper",
-	"license"     : "MIT",
-	"authors"     : [
-		{
-			"name"     : "Nilambar Sharma",
-			"email"    : "nilambar@outlook.com",
-			"homepage" : "https://www.nilambar.net",
-			"role"     : "Developer"
-		}
-	],
-	"support"     : {
-		"issues" : "https://github.com/ernilambar/widget-helper/issues"
-	},
-	"autoload"    : {
-		"psr-4": { 
-      "ErNilambar\\WidgetHelper\\": "src/" 
+	"name" : "ernilambar/widget-helper",
+  "version" : "1.0.1",
+  "description" : "WordPress Widget helper",
+  "keywords" : [ "wordpress" ],
+  "homepage" : "https://github.com/ernilambar/widget-helper",
+  "license" : "MIT",
+  "authors" : [
+    {
+     "name"     : "Nilambar Sharma",
+     "email"    : "nilambar@outlook.com",
+     "homepage" : "https://www.nilambar.net",
+     "role"     : "Developer"
+   }
+ ],
+  "support" : {
+    "issues" : "https://github.com/ernilambar/widget-helper/issues"
+  },
+  "autoload" : {
+    "psr-4": { 
+      "Nilambar\\WidgetHelper\\": "src/" 
     }
   },
-  "require"     : {
+  "require" : {
     "php" : ">=5.6"
   }
 }

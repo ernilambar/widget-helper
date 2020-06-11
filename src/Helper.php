@@ -10,7 +10,7 @@
  * @package WidgetHelper
  */
 
-namespace ErNilambar\WidgetHelper;
+namespace Nilambar\WidgetHelper;
 
 use WP_Widget;
 
