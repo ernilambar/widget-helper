@@ -9,7 +9,7 @@ var custom_upload_frame_obj;
 			var $this = $(this);
 			event.preventDefault();
 
-			var smartMagazineImageObject = wp.media.controller.Library.extend({
+			var customImageObject = wp.media.controller.Library.extend({
 				defaults : _.defaults({
 					id: 'custom-state-insert',
 					title: $this.data( 'uploader_title' ),
@@ -27,7 +27,7 @@ var custom_upload_frame_obj;
 				},
 				state : 'custom-state-insert',
 				states : [
-					new smartMagazineImageObject()
+					new customImageObject()
 				],
 				multiple: false
 			});
